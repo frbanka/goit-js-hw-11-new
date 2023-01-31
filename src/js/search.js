@@ -2,6 +2,7 @@ import { fetchPhotos } from './fetch';
 import { Notify } from 'notiflix';
 const searchForm = document.querySelector('.search-form');
 const gallery = document.querySelector('.gallery');
+const galleryText = document.querySelector('.gallery-text');
 const buttonLoad = document.querySelector('.load-more');
 
 searchForm.addEventListener('submit', searchImages);
@@ -9,12 +10,13 @@ searchForm.addEventListener('submit', searchImages);
 let pageNumber = 1;
 let foundImages = 0;
 let searchText = '';
+galleryText.innerHTML = 'Find your perfect photo';
 
 function createPhotoCard(arr) {
   const markup = arr
     .map(item => {
-      return `<a href='${item.largeImageURL}'><div class="photo-card"></a>
-    <img src="${item.webformatURL}" alt="${item.tags}" loading="lazy" />
+      return `<a href='${item.largeImageURL}'><div class="photo-card">
+    <img src="${item.webformatURL}" alt="${item.tags}" loading="lazy" /></a>
     <div class="info">
       <p class="info-item">
         <b>Likes</b>

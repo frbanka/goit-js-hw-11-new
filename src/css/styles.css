@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -7,7 +9,8 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
+  background: rgb(255,255,255);
+background: radial-gradient(circle, rgba(255,255,255,1) 24%, rgba(203,224,233,1) 71%, rgba(255,204,168,1) 100%);
   color: #212121;
   line-height: 1.5;
 }
@@ -39,4 +42,46 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px 0px 20px 0px;
+}
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 20px;
+}
+.gallery-text {
+  color: #500000;
+  font-size: 32px;
+}
+.gallery-text::before {
+  content: "📷";
+}
+.photo-card {
+  background: rgba(25, 90, 204, 0.57);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.9px);
+  -webkit-backdrop-filter: blur(5.9px);
+}
+.photo-card img {
+  max-height: 220px;
+  overflow: hidden;
+}
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0px;
+  color:#fafafa;
+}
+.info-item:first-child {
+  padding: 20px 0px 0px 0px;
+  margin: 0;
+}
+.info-item:last-child {
+  padding: 0px 0px 20px 0px;
+  margin: 0;
 }
