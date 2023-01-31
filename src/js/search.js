@@ -78,6 +78,7 @@ buttonLoad.addEventListener('click', async function () {
   createPhotoCard(response.hits);
   foundImages += response.hits.length;
   if (foundImages === response.totalHits) {
+    Notify.info("We're sorry, but you've reached the end of search results.");
     buttonLoad.setAttribute('hidden', '');
   }
 });
