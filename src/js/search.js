@@ -8,7 +8,7 @@ searchForm.addEventListener('submit', searchImages);
 
 let pageNumber = 1;
 let foundImages = 0;
-let searchQuery = '';
+let searchText = '';
 
 function createPhotoCard(arr) {
   const markup = arr
