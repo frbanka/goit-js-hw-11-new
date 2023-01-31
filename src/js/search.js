@@ -49,13 +49,12 @@ async function searchImages(e) {
 
   pageNumber = 1;
   const response = await fetchPhotos(searchText, pageNumber);
-  console.log(response);
   foundImages = response.hits.length;
 
   if (response.totalHits > 40) {
     buttonLoad.removeAttribute('hidden');
   } else {
-    buttonLoad.setAttribute('hidden', hidden);
+    buttonLoad.setAttribute('hidden', '');
   }
   if (response.totalHits > 0) {
     Notify.success(`Hooray! We found ${response.totalHits} images.`);
@@ -68,6 +67,15 @@ async function searchImages(e) {
     Notify.failure(
       'Sorry, there are no images matching your search query. Please try again.'
     );
-    buttonLoad.setAttribute('hidden', hidden);
+    buttonLoad.setAttribute('hidden', '');
   }
 }
+buttonLoad.addEventListener('click', async function () {
+  pageNumber += 1;
+  const response = await fetchPhotos(searchText, pageNumber);
+  createPhotoCard(response.hits);
+  foundImages += response.hits.length;
+  if (foundImages === response.totalHits) {
+    buttonLoad.setAttribute('hidden', '');
+  }
+});
