@@ -9,12 +9,20 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(255,255,255);
-background: radial-gradient(circle, rgba(255,255,255,1) 24%, rgba(203,224,233,1) 71%, rgba(255,204,168,1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 24%,
+    rgba(203, 224, 233, 1) 71%,
+    rgba(255, 204, 168, 1) 100%
+  );
   color: #212121;
   line-height: 1.5;
+  transition: all 1s ease;
 }
-
+.body-change {
+  background: black;
+  transition: all 1s ease;
+}
 .search-form {
   display: flex;
   align-items: center;
@@ -47,27 +55,44 @@ button {
 .gallery {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 20px;
   padding-top: 20px;
+}
+.gallery a {
+  display: flex;
+  max-width: 300px;
+  height: 200px;
 }
 .gallery-text {
   color: #500000;
   font-size: 32px;
 }
 .gallery-text::before {
-  content: "📷";
+  content: '📷';
 }
 .photo-card {
   background: rgba(25, 90, 204, 0.57);
-  border-radius: 16px;
+  border-radius: 6px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5.9px);
+  backdrop-filter: blur(2.9px);
   -webkit-backdrop-filter: blur(5.9px);
+  width: 250px;
+  height: 350px;
+  overflow: hidden;
+  transition: all 0.5s;
+  padding-bottom: 5px;
+}
+.photo-card:hover {
+  scale: 1.1;
+  transition: all 0.5s;
+  z-index: 20;
 }
 .photo-card img {
   max-height: 220px;
-  overflow: hidden;
+  width: 300px;
+  background-color: #fafafa;
 }
 .info {
   display: flex;
@@ -75,7 +100,7 @@ button {
   align-items: center;
   flex-direction: column;
   gap: 0px;
-  color:#fafafa;
+  color: #fafafa;
 }
 .info-item:first-child {
   padding: 20px 0px 0px 0px;

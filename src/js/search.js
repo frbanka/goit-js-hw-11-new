@@ -4,6 +4,7 @@ const searchForm = document.querySelector('.search-form');
 const gallery = document.querySelector('.gallery');
 const galleryText = document.querySelector('.gallery-text');
 const buttonLoad = document.querySelector('.load-more');
+const body = document.querySelector('body');
 
 searchForm.addEventListener('submit', searchImages);
 
@@ -44,6 +45,7 @@ function createPhotoCard(arr) {
 async function searchImages(e) {
   e.preventDefault();
   searchText = e.currentTarget.searchQuery.value;
+  body.classList.add('body-change');
 
   if (searchText === '') {
     return;
@@ -66,6 +68,7 @@ async function searchImages(e) {
   }
   if (response.totalHits === 0) {
     gallery.innerHTML = '';
+    body.classList.remove('body-change');
     Notify.failure(
       'Sorry, there are no images matching your search query. Please try again.'
     );
