@@ -45,7 +45,6 @@ function createPhotoCard(arr) {
 async function searchImages(e) {
   e.preventDefault();
   searchText = e.currentTarget.searchQuery.value;
-  body.classList.add('body-change');
 
   if (searchText === '') {
     return;
@@ -56,11 +55,13 @@ async function searchImages(e) {
   foundImages = response.hits.length;
 
   if (response.totalHits > 40) {
+    body.classList.add('body-change');
     buttonLoad.removeAttribute('hidden');
   } else {
     buttonLoad.setAttribute('hidden', '');
   }
   if (response.totalHits > 0) {
+    body.classList.add('body-change');
     Notify.success(`Hooray! We found ${response.totalHits} images.`);
     gallery.innerHTML = '';
     createPhotoCard(response.hits);
